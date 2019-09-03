@@ -1,0 +1,28 @@
+<!-- This is the home page. -->
+<!-- Look in the login folder for the login code. -->
+<ActionBar title="Pokedex"></ActionBar>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <Image class="logo" src="https://pro-rankedboost.netdna-ssl.com/wp-content/uploads/2016/07/Pokemon-Go-Pok%C3%A9dex-300x229.png" width = "300"></Image>
+        <PreviousNextView>
+            <GridLayout rows="auto, auto, auto">
+                <StackLayout row="0" class="input-field" marginBottom="2" width="400">
+                <TextField class="input" hint="Number" [isEnabled]="!processing" keyboardType="phone" autocorrect="false"
+                    [(ngModel)]="pokemon.id" returnKeyType="next">
+                </TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+                <StackLayout row="1" class="input-field" marginBottom="2">
+                    <Image [src]="pokemon.image" width="150" class="m-b-30"></Image>
+                    <Label class="text-center" [text]="pokemon.name" textWrap="true"></Label>
+                </StackLayout>
+            </GridLayout>
+        </PreviousNextView>
+        <StackLayout class="hr-light m-10"></StackLayout>
+        <Button text="Send" [isEnabled]="!processing" (tap)="submit()" class="btn btn-primary"></Button>
+        <Button class="btn btn-outline" text="Log out" (tap)="logout()"></Button>
+    </StackLayout>
+
+
+</FlexboxLayout>
